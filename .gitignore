@@ -1,0 +1,10 @@
+dist
+platform/android/build
+platform/android/app/build
+platform/android/.gradle
+platform/android/app/.classpath
+platform/android/app/.project
+platform/android/app/.settings
+platform/android/.settings
+platform/android/.project
+platform/android/app/libs

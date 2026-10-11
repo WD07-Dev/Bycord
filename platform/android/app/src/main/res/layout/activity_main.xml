@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="28dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="28dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/versionLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.14"
+                android:textColor="@color/brand"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/koreanButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/button"
+                android:minWidth="0dp"
+                android:paddingStart="9dp"
+                android:paddingEnd="9dp"
+                android:stateListAnimator="@null"
+                android:text="@string/language_korean"
+                android:textAllCaps="false"
+                android:textColor="@color/text"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/englishButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:background="@drawable/button"
+                android:minWidth="0dp"
+                android:paddingStart="9dp"
+                android:paddingEnd="9dp"
+                android:stateListAnimator="@null"
+                android:text="@string/language_english"
+                android:textAllCaps="false"
+                android:textColor="@color/text"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.06"
+            android:text="@string/app_name"
+            android:textColor="@color/text"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_subtitle"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.05"
+            android:textColor="@color/muted"
+            android:textSize="11sp" />
+
+        <View
+            android:layout_width="72dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="18dp"
+            android:background="@color/brand" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/notice"
+            android:padding="14dp"
+            android:text="@string/mobile_route_notice"
+            android:textColor="@color/warning"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/panel"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.1"
+                android:text="@string/mobile_route_config"
+                android:textColor="@color/muted"
+                android:textSize="9sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="monospace"
+                android:text="@string/proxy_selection"
+                android:textColor="@color/brand"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/autoButton"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/automatic"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/manualButton"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/manual"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="monospace"
+                android:text="@string/route_settings"
+                android:textColor="@color/brand"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="monospace"
+                android:text="@string/excluded_country"
+                android:textColor="@color/muted"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/exclude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/field"
+                android:hint="@string/excluded_hint"
+                android:inputType="textCapCharacters"
+                android:padding="13dp"
+                android:singleLine="true"
+                android:textColor="@color/text"
+                android:textColorHint="#6F796F" />
+
+            <LinearLayout
+                android:id="@+id/manualFields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/host"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/field"
+                    android:hint="@string/proxy_host_hint"
+                    android:inputType="textUri"
+                    android:padding="13dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text"
+                    android:textColorHint="#6F796F" />
+
+                <EditText
+                    android:id="@+id/port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/field"
+                    android:hint="@string/proxy_port_hint"
+                    android:inputType="number"
+                    android:padding="13dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text"
+                    android:textColorHint="#6F796F" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.08"
+            android:text="@string/connection_status"
+            android:textColor="@color/muted"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/field"
+            android:fontFamily="monospace"
+            android:padding="14dp"
+            android:text="@string/status_disconnected"
+            android:textColor="@color/muted"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_primary"
+            android:stateListAnimator="@null"
+            android:text="@string/connect_auto"
+            android:textAllCaps="false"
+            android:textColor="@color/button_text"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_secondary"
+            android:stateListAnimator="@null"
+            android:text="@string/stop_vpn"
+            android:textAllCaps="false"
+            android:textColor="@color/muted" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="@string/footer"
+            android:textColor="#59615B"
+            android:textSize="9sp" />
+    </LinearLayout>
+</ScrollView>

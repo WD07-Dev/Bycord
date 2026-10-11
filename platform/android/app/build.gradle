@@ -1,0 +1,27 @@
+plugins {
+    id "com.android.application"
+}
+
+def versionProperties = new Properties()
+rootProject.file("../../version.properties").withInputStream { versionProperties.load(it) }
+
+android {
+    namespace "com.ourgram.bycord"
+    compileSdk 34
+    buildFeatures {
+        buildConfig true
+    }
+
+    defaultConfig {
+        applicationId "com.ourgram.bycord"
+        minSdk 29
+        targetSdk 34
+        versionCode versionProperties.getProperty("androidVersionCode").toInteger()
+        versionName versionProperties.getProperty("versionName")
+    }
+}
+
+dependencies {
+    implementation files("libs/hev-socks5-tunnel.aar")
+    implementation files("libs/bycord-core.aar")
+}

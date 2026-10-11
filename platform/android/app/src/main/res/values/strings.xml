@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bycord</string>
+    <string name="version_format">BYCORD / MOBILE  ·  %1$s</string>
+    <string name="app_subtitle">ANDROID VPN  /  DISCORD ONLY</string>
+    <string name="mobile_route_notice">MOBILE ROUTE  /  Only the Discord app uses the VPN. Activity pages use the regular connection.</string>
+    <string name="mobile_route_config">MOBILE ROUTE SETTINGS  /  01</string>
+    <string name="proxy_selection">01  Proxy selection</string>
+    <string name="automatic">Find automatically</string>
+    <string name="manual">Enter manually</string>
+    <string name="route_settings">02  Route settings</string>
+    <string name="excluded_country">Excluded countries</string>
+    <string name="excluded_hint">KR,JP</string>
+    <string name="proxy_host_hint">SOCKS5 server IP</string>
+    <string name="proxy_port_hint">Port</string>
+    <string name="connection_status">CONNECTION STATUS</string>
+    <string name="status_disconnected">- Not connected</string>
+    <string name="connect_auto">Connect automatic route</string>
+    <string name="connect_manual">Connect specified route</string>
+    <string name="stop_vpn">Stop VPN</string>
+    <string name="footer">BYCORD MOBILE  /  by wheedo07</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_english">English</string>
+    <string name="invalid_excluded_country">Enter a valid two-letter excluded country code.</string>
+    <string name="invalid_proxy">Enter a valid server IP and port.</string>
+    <string name="status_searching">- Finding and validating proxies</string>
+    <string name="status_search_failed">- Could not find a proxy: %1$s</string>
+    <string name="status_proxy_selected">- %1$s · %2$d ms · Checking VPN permission</string>
+    <string name="status_vpn_starting">- Checking VPN startup</string>
+    <string name="status_vpn_connected">- Discord VPN connected</string>
+    <string name="status_vpn_failed">- VPN failed to start</string>
+    <string name="status_vpn_failed_detail">- VPN failed to start: %1$s</string>
+    <string name="notification_channel">Bycord VPN</string>
+    <string name="notification_starting">Connecting Discord VPN</string>
+    <string name="notification_connected">Discord route connected</string>
+    <string name="error_vpn_interface">Could not create the VPN interface</string>
+    <string name="error_tun2socks">Could not start tun2socks</string>
+    <string name="error_discord_missing">No installed Discord app was found</string>
+    <string name="vpn_service_description">Routes Discord through the user-selected SOCKS5 proxy</string>
+</resources>

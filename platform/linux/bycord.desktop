@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Bycord
+Comment=Discord 연결 경로 변경
+Exec=bycord
+Icon=bycord
+Terminal=false
+Categories=Network;

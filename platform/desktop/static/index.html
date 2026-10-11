@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Bycord</title>
+        <link rel="icon" href="icon.png" type="image/png">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <main class="shell">
+            <section class="card">
+                <div class="panel-label">
+                    <span data-i18n="routeSetup">경로 설정</span>
+                    <div class="language" aria-label="Language">
+                        <button id="langKo" type="button">한국어</button>
+                        <button id="langEn" type="button">English</button>
+                    </div>
+                </div>
+
+                <div class="section-head">
+                    <div><span class="step">01</span><h2 data-i18n="proxySelection">프록시 선택</h2></div>
+                    <p data-i18n="autoDescription">자동 검색은 연결 가능한 서버를 직접 검사합니다.</p>
+                </div>
+                <div class="mode" role="tablist" aria-label="프록시 연결 방식">
+                    <button id="auto" class="on" role="tab" aria-selected="true">
+                        <span class="mode-code" data-i18n="autoCode">자동</span>
+                        <strong data-i18n="automatic">자동 찾기</strong>
+                        <span data-i18n="automaticDetail">빠른 경로를 검사하고 선택</span>
+                    </button>
+                    <button id="manual" role="tab" aria-selected="false">
+                        <span class="mode-code" data-i18n="manualCode">직접</span>
+                        <strong data-i18n="manual">직접 입력</strong>
+                        <span data-i18n="manualDetail">지정한 프록시를 사용</span>
+                    </button>
+                </div>
+
+                <div class="divider"></div>
+                <div class="section-head compact">
+                    <div><span class="step">02</span><h2 data-i18n="routeSettings">경로 설정</h2></div>
+                </div>
+                <div class="grid">
+                    <div id="proxyWrap" class="field full" hidden>
+                        <label for="proxy" data-i18n="proxyAddress">프록시 주소</label>
+                        <input id="proxy" placeholder="socks5://127.0.0.1:9050" autocomplete="off">
+                    </div>
+                    <div class="field">
+                        <label for="exclude" data-i18n="excludedCountry">제외 국가</label>
+                        <input id="exclude" value="KR" placeholder="KR,JP" maxlength="32">
+                        <span class="hint" data-i18n="excludedHint">쉼표로 여러 국가를 구분합니다.</span>
+                    </div>
+                    <div class="field">
+                        <label for="exe" data-i18n="discordExecutable">Discord 실행 파일</label>
+                        <input id="exe" data-i18n-placeholder="executablePlaceholder" placeholder="비워두면 자동 감지" autocomplete="off">
+                        <span class="hint" data-i18n="executableHint">일반 설치 경로는 자동으로 찾습니다.</span>
+                    </div>
+                </div>
+
+                <p class="restart-note"><span data-i18n="restart">재시작</span><span data-i18n="restartDetail">연결할 때 실행 중인 Discord를 종료하고 새 경로로 다시 엽니다.</span></p>
+
+                <div class="actions">
+                    <button id="connect" type="button" data-i18n="connect">경로 연결</button>
+                    <button id="quit" type="button" class="secondary" data-i18n="quit">종료</button>
+                </div>
+                <div id="status" class="status" aria-live="polite">
+                    <div id="headline"></div>
+                    <div id="result" class="result"></div>
+                </div>
+            </section>
+            <p class="notice"><span data-i18n="notice">안내</span><span data-i18n="noticeDetail">공용 프록시는 연결 상태가 일정하지 않습니다.</span></p>
+            <p class="credit">by wheedo07</p>
+        </main>
+        <script src="translations.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

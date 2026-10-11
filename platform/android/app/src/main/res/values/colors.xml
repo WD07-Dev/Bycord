@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#090B0A</color>
+    <color name="panel">#111512</color>
+    <color name="field">#0B0E0C</color>
+    <color name="line">#303731</color>
+    <color name="text">#EEF3EF</color>
+    <color name="muted">#8E9991</color>
+    <color name="brand">#C6FF3D</color>
+    <color name="brand_light">#D8FF78</color>
+    <color name="button_text">#0A0D0A</color>
+    <color name="warning">#E7BA48</color>
+    <color name="warning_line">#5C4B22</color>
+    <color name="success">#C6FF3D</color>
+    <color name="error">#FF626B</color>
+</resources>
