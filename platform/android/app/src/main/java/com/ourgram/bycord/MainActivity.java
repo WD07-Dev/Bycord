@@ -76,7 +76,13 @@ public final class MainActivity extends Activity {
         englishButton = findViewById(R.id.englishButton);
         Button stopButton = findViewById(R.id.stopButton);
 
-        exclude.setText(getPreferences(MODE_PRIVATE).getString("exclude", "KR"));
+        if(getPreferences(MODE_PRIVATE).contains("exclude")) {
+            exclude.setText(getPreferences(MODE_PRIVATE).getString("exclude", "KR"));
+        }else {
+            exclude.setText("");
+            startButton.setEnabled(false);
+            new Thread(this::loadDefaultCountry, "BycordCountryLookup").start();
+        }
         host.setText(getPreferences(MODE_PRIVATE).getString("host", ""));
         port.setText(getPreferences(MODE_PRIVATE).getString("port", "1080"));
 
@@ -88,6 +94,20 @@ public final class MainActivity extends Activity {
         stopButton.setOnClickListener(view -> stopVpn());
         updateLanguageButtons();
         setAutoMode(true);
+    }
+
+    private void loadDefaultCountry() {
+        String country = "KR";
+        try {
+            country = Mobile.countryISO();
+        } catch (Exception ignored) {
+        }
+        String selected = country;
+        runOnUiThread(() -> {
+            if(isDestroyed()) return;
+            if(exclude.getText().toString().trim().isEmpty()) exclude.setText(selected);
+            startButton.setEnabled(true);
+        });
     }
 
     private void setLanguage(String language) {

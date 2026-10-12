@@ -13,7 +13,10 @@ import (
 	"time"
 )
 
-const freeProxyAPI = "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&protocol=socks5&proxy_format=protocolipport&format=json&timeout=1500"
+const (
+	freeProxyAPI  = "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&protocol=socks5&proxy_format=protocolipport&format=json&timeout=1500"
+	countryISOAPI = "https://ifconfig.co/country-iso"
+)
 
 type Choice struct {
 	Endpoint Endpoint
@@ -23,11 +26,40 @@ type Choice struct {
 
 type Progress func(done, total int)
 
+func CountryISO(ctx context.Context) (string, error) {
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, countryISOAPI, nil)
+	if err != nil {
+		return "", err
+	}
+	req.Header.Set("User-Agent", AppName+"/"+Version)
+	res, err := (&http.Client{Timeout: 5 * time.Second}).Do(req)
+	if err != nil {
+		return "", err
+	}
+	defer res.Body.Close()
+	if res.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("country lookup returned HTTP %d", res.StatusCode)
+	}
+	body, err := io.ReadAll(io.LimitReader(res.Body, 16))
+	if err != nil {
+		return "", err
+	}
+	code := strings.ToUpper(strings.TrimSpace(string(body)))
+	if !validCountryCode(code) {
+		return "", errors.New("country lookup returned an invalid country code")
+	}
+	return code, nil
+}
+
+func validCountryCode(code string) bool {
+	return len(code) == 2 && code[0] >= 'A' && code[0] <= 'Z' && code[1] >= 'A' && code[1] <= 'Z'
+}
+
 func ParseExcluded(raw string) map[string]bool {
 	out := map[string]bool{}
 	for _, part := range strings.Split(raw, ",") {
 		code := strings.ToUpper(strings.TrimSpace(part))
-		if len(code) == 2 && code[0] >= 'A' && code[0] <= 'Z' && code[1] >= 'A' && code[1] <= 'Z' {
+		if validCountryCode(code) {
 			out[code] = true
 		}
 	}

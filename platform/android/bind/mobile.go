@@ -15,6 +15,12 @@ type result struct {
 	LatencyMS int64  `json:"latency_ms"`
 }
 
+func CountryISO() (string, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	return core.CountryISO(ctx)
+}
+
 func FindProxy(excludedCountries string) (string, error) {
 	excluded := core.ParseExcluded(excludedCountries)
 	if len(excluded) == 0 {

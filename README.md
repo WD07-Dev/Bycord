@@ -13,7 +13,7 @@ Bycord can find a public proxy automatically or use a proxy supplied by the user
 - exits through a country that is not excluded; and
 - has the lowest measured latency among the valid candidates.
 
-Proxy candidates are obtained from ProxyScrape. South Korea (`KR`) is excluded by default and multiple country codes can be entered with commas.
+Proxy candidates are obtained from ProxyScrape. Bycord reads the current public-IP country from `ifconfig.co/country-iso` and uses it as the default excluded country. If the lookup fails, it falls back to South Korea (`KR`). Proxy exit countries are also checked through `ifconfig.co`, and multiple country codes can be entered with commas.
 
 ## How the routing works
 

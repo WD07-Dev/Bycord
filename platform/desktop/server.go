@@ -1,6 +1,7 @@
 package desktop
 
 import (
+	"bycord/core"
 	"context"
 	"crypto/rand"
 	"embed"
@@ -49,6 +50,20 @@ func Run(openBrowser func(string) error, connect ConnectFunc) error {
 	mux := http.NewServeMux()
 	server := &http.Server{ReadHeaderTimeout: 5 * time.Second}
 	mux.Handle(base, http.StripPrefix(base, http.FileServer(http.FS(assets))))
+	mux.HandleFunc(base+"country", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		if r.Method != http.MethodGet {
+			http.Error(w, `{"error":"method not allowed"}`, http.StatusMethodNotAllowed)
+			return
+		}
+		ctx, cancel := context.WithTimeout(r.Context(), 5*time.Second)
+		defer cancel()
+		country, err := core.CountryISO(ctx)
+		if err != nil {
+			country = "KR"
+		}
+		_ = json.NewEncoder(w).Encode(map[string]string{"country": country})
+	})
 	mux.HandleFunc(base+"connect", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		if r.Method != http.MethodPost {

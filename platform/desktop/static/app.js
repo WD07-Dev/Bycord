@@ -60,7 +60,19 @@ function localizeError(message) {
     return message;
 }
 
-async function connect() {
+async function loadDefaultCountry() {
+    let country = "KR";
+    try {
+        const response = await fetch("country");
+        const data = await response.json();
+        if(response.ok && /^[A-Z]{2}$/.test(data.country)) country = data.country;
+    } catch(error) {
+    }
+    if(excludeInput.value.trim() === "") excludeInput.value = country;
+}
+
+connectButton.addEventListener("click", async () => {
+    await loadDefaultCountry();
     connectButton.disabled = true;
     status.className = "status show";
     headline.innerHTML = `<span class="pulse"></span>${text("connecting")}`;
@@ -93,9 +105,9 @@ async function connect() {
     } finally {
         connectButton.disabled = false;
     }
-}
+});
 
-async function quit() {
+quitButton.addEventListener("click", async () => {
     await fetch("quit", { method: "POST" });
     document.body.innerHTML = `
     <main class="shell">
@@ -104,12 +116,10 @@ async function quit() {
             <p class="notice">${text("closeWindow")}</p>
         </section>
     </main>`;
-}
+});
 
 koreanButton.addEventListener("click", () => setLanguage("ko"));
 englishButton.addEventListener("click", () => setLanguage("en"));
 autoButton.addEventListener("click", () => setMode(true));
 manualButton.addEventListener("click", () => setMode(false));
-connectButton.addEventListener("click", connect);
-quitButton.addEventListener("click", quit);
 setLanguage(language);
