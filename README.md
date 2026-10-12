@@ -27,9 +27,7 @@ Windows supports standard Discord, Discord PTB, and Discord Canary installations
 
 ### Android
 
-Android does not provide Chromium launch options for an installed Discord app, so Bycord uses Android's local VPN API instead. The VPN captures traffic only from installed Discord, Discord PTB, or Discord Canary packages and forwards the selected routes through a SOCKS5 tunnel.
-
-Known Cloudflare network ranges remain on the direct route. Other applications and their traffic are not added to the VPN. The VPN icon shown by Android means the local routing service is active; Bycord is not connecting to a commercial VPN service.
+Android does not provide Chromium launch options for an installed Discord app, so Bycord uses Android's local VPN API instead. The VPN captures Discord API and Gateway routes from installed Discord, Discord PTB, or Discord Canary packages and forwards them through a SOCKS5 tunnel.
 
 ## Automatic and manual modes
 

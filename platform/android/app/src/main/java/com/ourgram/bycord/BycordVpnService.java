@@ -122,7 +122,7 @@ public final class BycordVpnService extends VpnService {
             writer.write("socks5:\n");
             writer.write("  address: '" + yaml(host) + "'\n");
             writer.write("  port: " + port + "\n");
-            writer.write("  udp: 'tcp'\n");
+            writer.write("  udp: 'udp'\n");
             writer.write("misc:\n");
             writer.write("  log-level: warn\n");
         }
